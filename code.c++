@@ -2,14 +2,12 @@
 #include <vector>
 #include <string>
 using namespace std;
-
 class Account {
 private:
     int accountNumber;
     string holderName;
     double balance;
     string pin;
-
 public:
     Account(int accNum, string name, string pinCode) {
         accountNumber = accNum;
@@ -17,14 +15,11 @@ public:
         pin = pinCode;
         balance = 0.0;
     }
-
     int getAccountNumber() const { return accountNumber; }
     string getHolderName() const { return holderName; }
-
     bool verifyPIN(const string& enteredPIN) const {
         return pin == enteredPIN;
     }
-
     void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
@@ -33,7 +28,6 @@ public:
             cout << "Invalid deposit amount.\n";
         }
     }
-
     void withdraw(double amount) {
         if (amount <= 0) {
             cout << "Invalid withdrawal amount.\n";
@@ -44,14 +38,12 @@ public:
             cout << "Withdrawal successful! Remaining balance: Rs" << balance << "\n";
         }
     }
-
     void display() const {
         cout << "Account Number: " << accountNumber << "\n";
         cout << "Account Holder: " << holderName << "\n";
         cout << "Balance: Rs" << balance << "\n";
     }
 };
-
 void showMenu() {
     cout << "\n--- ATM Management System Menu ---\n";
     cout << "1. Create New Account\n";
@@ -60,7 +52,6 @@ void showMenu() {
     cout << "4. Exit\n";
     cout << "----------------------------------\n";
 }
-
 Account* findAccountByNumber(vector<Account>& accounts, int accNum) {
     for (auto& acc : accounts) {
         if (acc.getAccountNumber() == accNum) {
@@ -69,7 +60,6 @@ Account* findAccountByNumber(vector<Account>& accounts, int accNum) {
     }
     return nullptr;
 }
-
 void accountOperations(Account& acc) {
     string inputPIN;
     cout << "Enter PIN for account " << acc.getAccountNumber() << ": ";
@@ -79,7 +69,6 @@ void accountOperations(Account& acc) {
         cout << "Incorrect PIN.\n";
         return;
     }
-
     int choice;
     do {
         cout << "\nAccount Menu:\n";
@@ -133,7 +122,7 @@ int main() {
             case 1: {
                 string name, pin;
                 cout << "Enter account holder's name: ";
-                cin.ignore();  // to ignore leftover newline
+                cin.ignore();  
                 getline(cin, name);
                 cout << "Set a 4-digit PIN: ";
                 cin >> pin;
