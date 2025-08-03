@@ -1,1 +1,2 @@
-# ATM-Management-System
+A simple console-based ATM-Management-System implemented in C++.  
+This program allows users to create bank accounts, access their accounts with PIN authentication, and perform basic banking operations such as checking balance, depositing money, and withdrawing funds.
